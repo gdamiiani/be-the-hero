@@ -3,6 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { FiPower, FiTrash2 } from 'react-icons/fi';
 
 import api from '../../services/api';
+import numberToBrl from '../../utils/numberToBrl';
 
 import './styles.css';
 
@@ -76,7 +77,7 @@ function Profile() {
             <p>{incident.description}</p>
 
             <strong>VALOR:</strong>
-            <p>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(incident.value)}</p>
+            <p>{numberToBrl(incident.value)}</p>
 
             <button type="button" onClick={() => handleDeleteIncident(incident.id)}>
               <FiTrash2 size={20} color="#a8a8b3" />
