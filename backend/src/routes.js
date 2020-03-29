@@ -5,17 +5,19 @@ const OngController = require('./controllers/OngController');
 const ProfileController = require('./controllers/ProfileController');
 const IncidentController = require('./controllers/IncidentController');
 
+const validators = require('./validators');
+
 const routes = express.Router();
 
-routes.post('/sessions', SessionController.create);
+routes.post('/sessions', validators.createSession, SessionController.create);
 
 routes.get('/ongs', OngController.index);
-routes.post('/ongs', OngController.create);
+routes.post('/ongs', validators.createOngs, OngController.create);
 
-routes.get('/profile', ProfileController.index);
+routes.get('/profile', validators.indexProfile, ProfileController.index);
 
-routes.get('/incidents', IncidentController.index);
-routes.post('/incidents', IncidentController.create);
-routes.delete('/incidents/:id', IncidentController.delete);
+routes.get('/incidents', validators.indexIncidents, IncidentController.index);
+routes.post('/incidents', validators.createIncidents, IncidentController.create);
+routes.delete('/incidents/:id', validators.deleteIncidents, IncidentController.delete);
 
 module.exports = routes;
