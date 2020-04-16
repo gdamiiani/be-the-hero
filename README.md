@@ -57,3 +57,7 @@ yarn start
 ## Autores
 
 * **Gustavo Damiani** - [damiiani](https://github.com/damiiani)
+
+## Licença
+
+Esse projeto está sobre a licença MIT - veja [LICENSE](./LICENSE) para detalhes
